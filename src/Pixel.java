@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public interface Pixel {
 
     public void lire(Scanner scanner);

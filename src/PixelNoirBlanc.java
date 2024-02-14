@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class PixelNoirBlanc implements Pixel {
 
     private short _pixel;
