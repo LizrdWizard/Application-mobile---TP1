@@ -8,14 +8,12 @@
 
 public class Main {
     public static void main(String[] args) {
-        ImageCouleur imageNB = new ImageCouleur("C:/Users/felix/Git/Application-mobile---TP1/src/Sherbrooke_Frontenac_nuit.ppm");
+        ImageNoirBlanc imageNB = new ImageNoirBlanc("C:/Users/felix/Git/Application-mobile---TP1/src/Sherbrooke_Frontenac_nuit.pgm");
 
         imageNB.lire();
         
-        ImageCouleur copieimage = new ImageCouleur("C:/Users/felix/Git/Application-mobile---TP1/src/Sherbrooke_Frontenac_nuit.ppm");
+        ImageNoirBlanc copieimage = imageNB.extraire(50, 50, 100, 100);
 
-        System.out.println(copieimage.estIdentique(imageNB));
-
-        imageNB.ecrire();
+        copieimage.ecrire();
     }
 }

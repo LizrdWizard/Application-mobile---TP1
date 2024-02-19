@@ -15,7 +15,11 @@ public class Image {
     protected short _height;
     protected String _nomFichier;
 
-    public Image() {}
+    public Image() {
+        _pixel = null;
+        _width = _height = 0;
+        _nomFichier = "";
+    }
 
     /**
      * @param
@@ -138,30 +142,6 @@ public class Image {
                 _pixel[i][j].eclaircir_noircir(valeur);
             }
         }
-    }
-
-    /**
-     * @param
-     * @description: Extraire un sous ensemble de l’image à partir de du point p1,c1 jusqu’à p2,c2
-     * @author : Joel Tidjane
-     */
-    public Image extraire(int x1, int y1, int x2, int y2) {
-        int newWidht = x2 - x1 +1;
-        int newHeight = y2 - y1 +1;
-
-        Image nouvelleImage = new Image();
-        nouvelleImage._width = (short) newWidht;
-        nouvelleImage._height = (short) newHeight;
-        nouvelleImage._pixel = new Pixel[newWidht][newHeight];
-
-        for (int i = y1; i <= y2; i++) { //ligne
-            for (int j = x1; j <= x2; j++) { //colonne
-                nouvelleImage._pixel[i - y1][j - x1] = this._pixel[i][j];
-            }
-        }
-
-        return nouvelleImage;
-
     }
 
     /**
