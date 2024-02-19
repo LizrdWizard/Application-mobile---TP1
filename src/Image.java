@@ -120,7 +120,7 @@ public class Image {
         _nomFichier = image._nomFichier;
         _width = image._width;
         _height = image._height;
-        _pixel = new Pixel[image._width][image._height];
+        _pixel = new Pixel[image._height][image._width];
         for (int i = 0; i < image._height; i++) {
             for (int j = 0; j < image._width; j++) {
                 _pixel[i][j] = image._pixel[i][j];
