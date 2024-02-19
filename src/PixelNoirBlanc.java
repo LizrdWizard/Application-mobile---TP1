@@ -20,8 +20,8 @@ public class PixelNoirBlanc implements Pixel {
      * @param       :
      * @description :
      */
-    public void ecrire(Scanner scanner) {
-
+    public String ecrire() {
+        return "";
     }
 
     /**
