@@ -30,14 +30,6 @@ public class Image {
      * @param
      * @description:
      */
-    public void lire() {
-
-    }
-
-    /**
-     * @param
-     * @description:
-     */
     public void ecrire() {
         try {
             FileWriter writer = new FileWriter(_nomFichier);

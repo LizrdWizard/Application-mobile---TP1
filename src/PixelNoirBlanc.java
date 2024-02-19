@@ -14,6 +14,17 @@ public class PixelNoirBlanc implements Pixel {
      */
     public void lire(Scanner scanner) {
 
+        try {
+
+            if (!scanner.hasNextShort()) {
+                throw new Exception("Valeur n'est pas un short");
+            }
+
+            _pixel = scanner.nextShort();
+        }
+        catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     /**
@@ -30,5 +41,9 @@ public class PixelNoirBlanc implements Pixel {
      */
     public void eclaircir_noircir(short valeur) {
 
+        _pixel += valeur;
+
+        if (_pixel < 0) {_pixel = 0;}
+        if (_pixel > 255) {_pixel = 255;}
     }
 }

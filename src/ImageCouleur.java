@@ -32,6 +32,7 @@ public class ImageCouleur extends Image {
 
             _pixel = new Pixel[_width][_height];
 
+
             for (int i = 0; i < _width; i++) {
                 for (int j = 0; j < _height; j++) {
                     _pixel[i][j] = new PixelCouleur();
