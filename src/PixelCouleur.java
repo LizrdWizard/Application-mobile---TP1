@@ -37,7 +37,12 @@ public class PixelCouleur implements Pixel {
      * @description:
      */
     public String ecrire() {
-        return "";
+        String sortie = "";
+
+        for (int i = 0; i < _size; i++) {
+            sortie += _pixel[i] + " ";
+        }
+        return sortie;
     }
 
     /**

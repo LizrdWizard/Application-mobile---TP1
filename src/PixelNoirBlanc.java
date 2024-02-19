@@ -32,7 +32,7 @@ public class PixelNoirBlanc implements Pixel {
      * @description :
      */
     public String ecrire() {
-        return "";
+        return String.valueOf(_pixel) + ' ';
     }
 
     /**

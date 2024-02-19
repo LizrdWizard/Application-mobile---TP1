@@ -1,4 +1,6 @@
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.Scanner;
 
 public class Image {
 
@@ -30,17 +32,80 @@ public class Image {
      * @param
      * @description:
      */
-    public void ecrire() {
+    public void ecrire(String type) {
+        String nouveauNom = _nomFichier + "copie";
+
+        if (type.equals("P3")) {
+            nouveauNom += ".ppm";
+        }
+        else if (type.equals("P2")) {
+            nouveauNom += ".pgm";
+        }
+
         try {
-            FileWriter writer = new FileWriter(_nomFichier);
+
+            FileWriter writer = new FileWriter(nouveauNom);
+
+            writer.write(type + "\n" + _width + " " + _height + "\n255\n");
 
             for (int i = 0; i < _width; i++) {
                 for (int j = 0; j < _height; j++) {
                     writer.write(_pixel[i][j].ecrire());
                 }
+                writer.write("\n");
             }
 
             writer.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void lire(String typeVoulu) {
+        try {
+            Scanner scanner = new Scanner(new FileReader(_nomFichier));
+
+            if (!scanner.hasNext()) {
+                throw new Exception("Type d'image non trouvé");
+            }
+
+            String type = scanner.next();
+
+            if (!typeVoulu.equals(type)) {
+                throw new Exception("Mauvais type d'image en lecture");
+            }
+
+            if (!scanner.hasNextShort()) {
+                throw new Exception("Largeur non trouvée");
+            }
+            _width = scanner.nextShort();
+
+            if (!scanner.hasNextShort()) {
+                throw new Exception("Hauteur non trouvée");
+            }
+            _height = scanner.nextShort();
+
+            if (!scanner.hasNextShort()) {
+                throw new Exception("Chiffre 255 non trouvé");
+            }
+            scanner.nextShort();
+
+            _pixel = new Pixel[_width][_height];
+
+
+            for (int i = 0; i < _width; i++) {
+                for (int j = 0; j < _height; j++) {
+
+                    if(typeVoulu.equals("P3")) {
+                        _pixel[i][j] = new PixelCouleur();
+                    } else if (typeVoulu.equals("P2")) {
+                        _pixel[i][j] = new PixelNoirBlanc();
+                    }
+
+                    _pixel[i][j].lire(scanner);
+                }
+            }
         }
         catch (Exception e) {
             e.printStackTrace();
