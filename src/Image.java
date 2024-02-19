@@ -48,8 +48,8 @@ public class Image {
 
             writer.write(type + "\n" + _width + " " + _height + "\n255\n");
 
-            for (int i = 0; i < _width; i++) {
-                for (int j = 0; j < _height; j++) {
+            for (int i = 0; i < _height; i++) {
+                for (int j = 0; j < _width; j++) {
                     writer.write(_pixel[i][j].ecrire());
                 }
                 writer.write("\n");
@@ -91,11 +91,11 @@ public class Image {
             }
             scanner.nextShort();
 
-            _pixel = new Pixel[_width][_height];
+            _pixel = new Pixel[_height][_width];
 
 
-            for (int i = 0; i < _width; i++) {
-                for (int j = 0; j < _height; j++) {
+            for (int i = 0; i < _height; i++) {
+                for (int j = 0; j < _width; j++) {
 
                     if(typeVoulu.equals("P3")) {
                         _pixel[i][j] = new PixelCouleur();
@@ -121,8 +121,8 @@ public class Image {
         _width = image._width;
         _height = image._height;
         _pixel = new Pixel[image._width][image._height];
-        for (int i = 0; i < image._width; i++) {
-            for (int j = 0; j < image._height; j++) {
+        for (int i = 0; i < image._height; i++) {
+            for (int j = 0; j < image._width; j++) {
                 _pixel[i][j] = image._pixel[i][j];
             }
         }
@@ -133,8 +133,8 @@ public class Image {
      * @description:
      */
     void eclaircir_noircir(short valeur) {
-        for (int i = 0; i < _width; i++) {
-            for (int j = 0; j < _height; j++) {
+        for (int i = 0; i < _height; i++) {
+            for (int j = 0; j < _width; j++) {
                 _pixel[i][j].eclaircir_noircir(valeur);
             }
         }
@@ -204,9 +204,9 @@ public class Image {
         int newWidth = _height;
         int newHeight = _width;
         Pixel[][] newPixel = new Pixel[newHeight][newWidth];
-        for(int i=0; i<_height;i++){
+        for(int i=0; i < _height;i++){
             for(int j=0; j<_width; j++){
-                newPixel[j][(_height-1)-i]= _pixel[i][j];
+                newPixel[j][_height - 1 - i]= _pixel[i][j];
             }
         }
 
