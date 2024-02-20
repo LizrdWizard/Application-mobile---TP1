@@ -1,6 +1,8 @@
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Collections;
 
 public class Image {
 
@@ -184,5 +186,35 @@ public class Image {
         _height = (short) newHeight;
         _pixel = newPixel;
 
+    }
+
+    /**
+     * @param
+     * @description: Permet de tourner de 90 degrés l’image.
+     * @author : Joel Tidjane
+     */
+
+    public Pixel couleur_preponderante() {
+
+        HashMap<Pixel, Integer> myMap = new HashMap<Pixel, Integer>();
+        Integer count = 0;
+
+        for (int i = 0; i < _height; i++) {
+            for (int j = 0; j < _width; j++) {
+
+                if (!myMap.containsKey(this._pixel[i][j])) {
+                    myMap.put(this._pixel[i][j], 1);
+                }
+                else {
+                    count = myMap.getOrDefault(this._pixel[i][j], 0);
+                    myMap.put(this._pixel[i][j], count + 1);
+                }
+            }
+        }
+
+        count = Collections.max(myMap.values());;
+
+        myMap.containsValue()
+        return myPixel;
     }
 }
