@@ -2,7 +2,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
 import java.util.HashMap;
-import java.util.Collections;
 
 public class Image {
 
@@ -199,32 +198,24 @@ public class Image {
     }
 
     /**
-     * @param
-     * @description: Permet de tourner de 90 degrés l’image.
-     * @author : Joel Tidjane
+     * @param       :
+     * @description : Trouve le pixel le plus commun dans l'image
+     * @author      : Jasmin Dubuc
      */
 
     public Pixel couleur_preponderante() {
 
         HashMap<Pixel, Integer> myMap = new HashMap<Pixel, Integer>();
-        Integer count = 0;
+        HashMap.Entry<Pixel, Integer> maxEntry = null;
 
-        for (int i = 0; i < _height; i++) {
-            for (int j = 0; j < _width; j++) {
-
-                if (!myMap.containsKey(this._pixel[i][j])) {
-                    myMap.put(this._pixel[i][j], 1);
-                }
-                else {
-                    count = myMap.getOrDefault(this._pixel[i][j], 0);
-                    myMap.put(this._pixel[i][j], count + 1);
-                }
+        for (HashMap.Entry<Pixel, Integer> entry : myMap.entrySet())
+        {
+            if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0)
+            {
+                maxEntry = entry;
             }
         }
 
-        count = Collections.max(myMap.values());;
-
-        myMap.containsValue()
-        return myPixel;
+        return maxEntry.getKey();
     }
 }
