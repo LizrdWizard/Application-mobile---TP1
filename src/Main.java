@@ -8,10 +8,10 @@
 
 public class Main {
     public static void main(String[] args) {
-        ImageNoirBlanc imageNB = new ImageNoirBlanc("C:/Users/felix/Git/Application-mobile---TP1/src/Sherbrooke_Frontenac_nuit.pgm");
+        ImageNoirBlanc imageNB = new ImageNoirBlanc(System.getProperty("user.dir") + "/src/Sherbrooke_Frontenac_nuit.pgm");
 
         imageNB.lire();
 
-        //copieimage.ecrire();
+        imageNB.ecrire();
     }
 }
