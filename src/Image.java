@@ -146,16 +146,6 @@ public class Image {
 
     /**
      * @param
-     * @description:
-     */
-
-
-    void reduire() {
-
-    }
-
-    /**
-     * @param
      * @description: Détecte si les deux images sont identiques pixel par pixel.
      * @author : Joel Tidjane
      */
@@ -180,7 +170,7 @@ public class Image {
      * @description: Permet de tourner de 90 degrés l’image.
      * @author : Joel Tidjane
      */
-    void pivoter90() {
+    public void pivoter90() {
         int newWidth = _height;
         int newHeight = _width;
         Pixel[][] newPixel = new Pixel[newHeight][newWidth];

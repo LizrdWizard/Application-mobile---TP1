@@ -12,8 +12,6 @@ public class Main {
 
         imageNB.lire();
         
-        ImageNoirBlanc copieimage = imageNB.extraire(50, 50, 100, 100);
-
-        copieimage.ecrire();
+        //copieimage.ecrire();
     }
 }
