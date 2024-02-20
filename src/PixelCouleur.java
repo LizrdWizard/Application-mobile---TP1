@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class PixelCouleur implements Pixel {
@@ -58,5 +59,23 @@ public class PixelCouleur implements Pixel {
             if (_pixel[i] > 255) {_pixel[i] = 255;}
 
         }
+    }
+
+    public Pixel moyenne(List<Pixel> listePixels) {
+        PixelCouleur pixelMoyen = this;
+
+        for (int i = 0; i < listePixels.size(); i++) {
+            if (listePixels.get(i) instanceof PixelCouleur) {
+                for (int j = 0; j < _size; j++) {
+                    pixelMoyen._pixel[j] += ((PixelCouleur) listePixels.get(i))._pixel[j];
+                }
+            }
+        }
+
+        for (int j = 0; j < _size; j++) {
+            pixelMoyen._pixel[j] /= (listePixels.size() + 1);
+        }
+
+        return pixelMoyen;
     }
 }

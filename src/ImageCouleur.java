@@ -1,6 +1,5 @@
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ImageCouleur extends Image {
     public ImageCouleur() {

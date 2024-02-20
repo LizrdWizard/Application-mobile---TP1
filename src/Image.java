@@ -2,6 +2,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
 import java.util.HashMap;
+import java.util.*;
 
 public class Image {
 
@@ -23,8 +24,8 @@ public class Image {
     }
 
     /**
-     * @param
-     * @description:
+     * @param       :
+     * @description :
      */
     public Image(String nomFichier) {
 
@@ -34,8 +35,8 @@ public class Image {
     }
 
     /**
-     * @param
-     * @description:
+     * @param       :
+     * @description :
      */
     public void ecrire(String type) {
         String nouveauNom = _nomFichier + "copie";
@@ -67,6 +68,10 @@ public class Image {
         }
     }
 
+    /**
+     * @param       :
+     * @description :
+     */
     public void lire(String typeVoulu) {
         try {
             Scanner scanner = new Scanner(new FileReader(_nomFichier));
@@ -118,8 +123,8 @@ public class Image {
     }
 
     /**
-     * @param
-     * @description:
+     * @param       :
+     * @description :
      */
     public void copier(Image image) {
         _nomFichier = image._nomFichier;
@@ -134,8 +139,8 @@ public class Image {
     }
 
     /**
-     * @param
-     * @description:
+     * @param       :
+     * @description :
      */
     void eclaircir_noircir(short valeur) {
         for (int i = 0; i < _height; i++) {
@@ -146,19 +151,9 @@ public class Image {
     }
 
     /**
-     * @param
-     * @description:
-     */
-
-
-    void reduire() {
-
-    }
-
-    /**
-     * @param
-     * @description: Détecte si les deux images sont identiques pixel par pixel.
-     * @author : Joel Tidjane
+     * @param       :
+     * @description : Détecte si les deux images sont identiques pixel par pixel.
+     * @author      : Joel Tidjane
      */
     public boolean estIdentique(Image image) {
         if(image._width != _width || image._height != _height){
@@ -177,11 +172,11 @@ public class Image {
     }
 
     /**
-     * @param
-     * @description: Permet de tourner de 90 degrés l’image.
-     * @author : Joel Tidjane
+     * @param       :
+     * @description : Permet de tourner de 90 degrés l’image.
+     * @author      : Joel Tidjane
      */
-    void pivoter90() {
+    public void pivoter90() {
         int newWidth = _height;
         int newHeight = _width;
         Pixel[][] newPixel = new Pixel[newHeight][newWidth];
@@ -199,23 +194,60 @@ public class Image {
 
     /**
      * @param       :
-     * @description : Trouve le pixel le plus commun dans l'image
-     * @author      : Jasmin Dubuc
+     * @description :
+     * @author      :
      */
 
-    public Pixel couleur_preponderante() {
+    public void reduire() {
+        int newHeight = _height / 2;
+        int newWidth = _width / 2;
 
-        HashMap<Pixel, Integer> myMap = new HashMap<Pixel, Integer>();
-        HashMap.Entry<Pixel, Integer> maxEntry = null;
 
-        for (HashMap.Entry<Pixel, Integer> entry : myMap.entrySet())
-        {
-            if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0)
-            {
-                maxEntry = entry;
+        Pixel[][] pixel = new Pixel[newHeight][newWidth];
+
+        for (int i = 0; i < _height; i += 2) {
+            for (int j = 0; j < _width; j += 2) {
+                List<Pixel> listePixels = new ArrayList<Pixel>();
+
+                if (j + 1 < _width && i + 1 < _height) {
+                    listePixels.add(_pixel[i + 1][j + 1]);
+                }
+
+                if (j + 1 < _width) {
+                    listePixels.add(_pixel[i][j + 1]);
+                }
+
+                if (i + 1 < _height) {
+                    listePixels.add(_pixel[i + 1][j]);
+                }
+
+
+                pixel[i / 2][j / 2] = _pixel[i][j].moyenne(listePixels);
             }
         }
 
-        return maxEntry.getKey();
+        _pixel = pixel;
+        _height = (short)newHeight;
+        _width = (short)newWidth;
     }
+
+    /**
+     * @param       :
+     * @description : Trouve le pixel le plus commun dans l'image
+     * @author      : Jasmin Dubuc
+     * */
+   public Pixel couleur_preponderante() {
+
+       HashMap<Pixel, Integer> myMap = new HashMap<Pixel, Integer>();
+       HashMap.Entry<Pixel, Integer> maxEntry = null;
+
+       for (HashMap.Entry<Pixel, Integer> entry : myMap.entrySet()) {
+
+           if (maxEntry == null || entry.getValue().compareTo(maxEntry.getValue()) > 0) {
+               maxEntry = entry;
+           }
+       }
+
+       return maxEntry.getKey();
+   }
 }
