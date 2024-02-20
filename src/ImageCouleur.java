@@ -1,6 +1,5 @@
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ImageCouleur extends Image {
     public ImageCouleur() {
@@ -39,18 +38,5 @@ public class ImageCouleur extends Image {
         }
 
         return nouvelleImage;
-    }
-
-    public void reduire() {
-        int newHeight = _height / 2;
-        int newWidth = _width / 2;
-
-        PixelCouleur[][] pixel = new PixelCouleur[newHeight][newWidth];
-
-        for (int i = 0; i < _height; i += 2) {
-            for (int j = 0; j < _width; j += 2) {
-
-            }
-        }
     }
 }

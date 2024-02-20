@@ -1,8 +1,6 @@
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.Scanner;
-import java.util.HashMap;
-import java.util.Collections;
+import java.util.*;
 
 public class Image {
 
@@ -188,11 +186,37 @@ public class Image {
 
     }
 
-    /**
-     * @param
-     * @description: Permet de tourner de 90 degrés l’image.
-     * @author : Joel Tidjane
-     */
+    public void reduire() {
+        int newHeight = _height / 2;
+        int newWidth = _width / 2;
+
+        Pixel[][] pixel = new Pixel[newHeight][newWidth];
+
+        for (int i = 0; i < _height; i += 2) {
+            for (int j = 0; j < _width; j += 2) {
+                List<Pixel> listePixels = new ArrayList<Pixel>();
+
+                if (j + 1 < _width && i + 1 < _height) {
+                    listePixels.add(_pixel[i + 1][j + 1]);
+                }
+
+                if (j + 1 < _width) {
+                    listePixels.add(_pixel[i][j + 1]);
+                }
+
+                if (i + 1 < _height) {
+                    listePixels.add(_pixel[i + 1][j]);
+                }
+
+
+                pixel[i / 2][j / 2] = _pixel[i][j].moyenne(listePixels);
+            }
+        }
+
+        _pixel = pixel;
+        _height = (short)newHeight;
+        _width = (short)newWidth;
+    }
 
 /*    public Pixel couleur_preponderante() {
 

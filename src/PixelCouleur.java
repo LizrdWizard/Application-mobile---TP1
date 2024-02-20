@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 public class PixelCouleur implements Pixel {
@@ -60,14 +61,20 @@ public class PixelCouleur implements Pixel {
         }
     }
 
-    public PixelCouleur moyenne(PixelCouleur p1, PixelCouleur p2, PixelCouleur p3) {
-        PixelCouleur pixelMoyen = new PixelCouleur();
+    public Pixel moyenne(List<Pixel> listePixels) {
+        PixelCouleur pixelMoyen = this;
 
-        pixelMoyen._pixel[0] += (_pixel[0] + p1._pixel[0] + p2._pixel[0] + p3._pixel[0]) / 4;
+        for (int i = 0; i < listePixels.size(); i++) {
+            if (listePixels.get(i) instanceof PixelCouleur) {
+                for (int j = 0; j < _size; j++) {
+                    pixelMoyen._pixel[j] += ((PixelCouleur) listePixels.get(i))._pixel[j];
+                }
+            }
+        }
 
-        pixelMoyen._pixel[1] += (_pixel[1] + p1._pixel[1] + p2._pixel[1] + p3._pixel[1]) / 4;
-
-        pixelMoyen._pixel[2] += (_pixel[2] + p1._pixel[2] + p2._pixel[2] + p3._pixel[2]) / 4;
+        for (int j = 0; j < _size; j++) {
+            pixelMoyen._pixel[j] /= (listePixels.size() + 1);
+        }
 
         return pixelMoyen;
     }
