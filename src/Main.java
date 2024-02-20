@@ -11,7 +11,7 @@ public class Main {
         ImageNoirBlanc imageNB = new ImageNoirBlanc("C:/Users/felix/Git/Application-mobile---TP1/src/Sherbrooke_Frontenac_nuit.pgm");
 
         imageNB.lire();
-        
+
         //copieimage.ecrire();
     }
 }

@@ -194,7 +194,7 @@ public class Image {
      * @author : Joel Tidjane
      */
 
-    public Pixel couleur_preponderante() {
+/*    public Pixel couleur_preponderante() {
 
         HashMap<Pixel, Integer> myMap = new HashMap<Pixel, Integer>();
         Integer count = 0;
@@ -216,5 +216,5 @@ public class Image {
 
         myMap.containsValue()
         return myPixel;
-    }
+    }*/
 }
