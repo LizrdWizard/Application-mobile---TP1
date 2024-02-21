@@ -242,8 +242,8 @@ public class Image {
        HashMap.Entry<Pixel, Integer> maxEntry = null;
        Integer count;
 
-       for (int i = 0; i < _height; i += 2) {
-           for (int j = 0; j < _width; j += 2) {
+       for (int i = 0; i < _height; i++) {
+           for (int j = 0; j < _width; j++) {
 
                if (!myMap.containsKey(_pixel[i][j])) {
                    myMap.put(_pixel[i][j], 1);
