@@ -1,9 +1,7 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 /**
- * @author      :
- * @param       :
- * @description :
+ * @description : Fil d'exécution principal
  */
 
 public class Main {
@@ -19,11 +17,11 @@ public class Main {
         //imageNB.ecrire();
 
         imageCouleur.lire();
-        System.out.println(imageCouleur.couleur_preponderante());
+        System.out.println(imageCouleur.couleur_preponderante().ecrire());
         //imageCouleur.ecrire();
 
         imageCouleur.reduire();
-        imageCouleur.ecrire();
+        //imageCouleur.ecrire();
 
         imageCouleur.pivoter90();
         imageCouleur.pivoter90();
@@ -39,7 +37,7 @@ public class Main {
         //copie.ecrire();
 
         ImageCouleur extrait = new ImageCouleur();
-        //extrait = imageCouleur.extraire(10, 10, 100, 30);
+        extrait = imageCouleur.extraire(10, 10, 50, 50);
         //extrait.ecrire();
     }
 }

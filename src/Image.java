@@ -4,19 +4,20 @@ import java.util.Scanner;
 import java.util.HashMap;
 import java.util.*;
 
+/**
+ * @description : Classe mère image
+ */
 public class Image {
-
-    /**
-     *
-     * @param nomFichier
-     */
-
     protected Pixel[][] _pixel;
 
     protected short _width;
     protected short _height;
     protected String _nomFichier;
 
+    /**
+     * @description Constructeur sans paramètre
+     * @author Félix Barré
+     */
     public Image() {
         _pixel = null;
         _width = _height = 0;
@@ -24,8 +25,9 @@ public class Image {
     }
 
     /**
-     * @param       :
-     * @description :
+     * @param nomFichier Chemin du fichier
+     * @description Constructeur avec paramètre
+     * @author Félix Barré
      */
     public Image(String nomFichier) {
 
@@ -35,22 +37,13 @@ public class Image {
     }
 
     /**
-     * @param       :
-     * @description :
+     * @param type Type d'image écrit au début du fichier
+     * @description Écrit l'image dans un fichier
+     * @author Félix Barré
      */
     public void ecrire(String type) {
-        String nouveauNom = _nomFichier + "copie";
-
-        if (type.equals("P3")) {
-            nouveauNom += ".ppm";
-        }
-        else if (type.equals("P2")) {
-            nouveauNom += ".pgm";
-        }
-
         try {
-
-            FileWriter writer = new FileWriter(nouveauNom);
+            FileWriter writer = new FileWriter(_nomFichier);
 
             writer.write(type + "\n" + _width + " " + _height + "\n255\n");
 
@@ -69,8 +62,9 @@ public class Image {
     }
 
     /**
-     * @param       :
-     * @description :
+     * @param typeVoulu Le type qui devrait être écrit au début du fichier lu
+     * @description Va lire l'image dans un fichier
+     * @author Félix Barré
      */
     public void lire(String typeVoulu) {
         try {
@@ -123,8 +117,9 @@ public class Image {
     }
 
     /**
-     * @param       :
-     * @description :
+     * @param image Image à copier
+     * @description Copie l'entièreté du contenu d'une image
+     * @author Félix Barré
      */
     public void copier(Image image) {
         _nomFichier = image._nomFichier;
@@ -139,8 +134,9 @@ public class Image {
     }
 
     /**
-     * @param       :
-     * @description :
+     * @param valeur Valeur appliquée à l'image
+     * @description Éclaircir ou noircir l'image selon la valeur passée en paramètre
+     * @author Félix Barré
      */
     void eclaircir_noircir(short valeur) {
         for (int i = 0; i < _height; i++) {
@@ -151,7 +147,7 @@ public class Image {
     }
 
     /**
-     * @param       :
+     * @param image Image à comparer
      * @description : Détecte si les deux images sont identiques pixel par pixel.
      * @author      : Joel Tidjane
      */
@@ -172,7 +168,6 @@ public class Image {
     }
 
     /**
-     * @param       :
      * @description : Permet de tourner de 90 degrés l’image.
      * @author      : Joel Tidjane
      */
@@ -193,9 +188,8 @@ public class Image {
     }
 
     /**
-     * @param       :
-     * @description :
-     * @author      :
+     * @description Réduit la résolution de l'image de moitié
+     * @author Félix Barré
      */
 
     public void reduire() {
@@ -232,7 +226,6 @@ public class Image {
     }
 
     /**
-     * @param       :
      * @description : Trouve le pixel le plus commun dans l'image
      * @author      : Jasmin Dubuc
      * */

@@ -2,13 +2,29 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.Scanner;
 
+/**
+ * @description Classe pour une image PGM
+ */
 public class ImageNoirBlanc extends Image {
+    /**
+     * @description Constructeur sans paramètres
+     * @author Félix Barré
+     */
     public  ImageNoirBlanc() {
         super();
     }
+    /**
+     * @description Constructeur avec paramètres
+     * @author Félix Barré
+     */
     public ImageNoirBlanc(String nomFichier) {
         super(nomFichier);
     }
+
+    /**
+     * @description Lire une image à partir du fichier
+     * @author Félix Barré
+     */
     public void lire() {
         super.lire("P2");
     }
@@ -16,6 +32,7 @@ public class ImageNoirBlanc extends Image {
     /**
      * @param
      * @description:
+     * @author
      */
     public void ecrire() {
         super.ecrire("P2");
