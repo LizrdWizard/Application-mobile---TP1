@@ -1,7 +1,3 @@
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.util.Scanner;
-
 /**
  * @description Classe pour une image PGM
  */
@@ -30,14 +26,21 @@ public class ImageNoirBlanc extends Image {
     }
 
     /**
-     * @param
-     * @description:
-     * @author
+     * @description Écrire l'image dans un fichier
+     * @author Félix Barré
      */
     public void ecrire() {
         super.ecrire("P2");
     }
 
+    /**
+     * @param x1 Position x du point 1
+     * @param x2 Position x du point 2
+     * @param y1 Position y du point 1
+     * @param y2 Position y du point 2
+     * @description Extrait une section déterminée de l'image
+     * @author Joel Tidjane
+     */
     public ImageNoirBlanc extraire(int x1, int y1, int x2, int y2) {
         int newWidth = x2 - x1 +1;
         int newHeight = y2 - y1 +1;
