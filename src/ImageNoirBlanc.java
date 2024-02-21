@@ -28,6 +28,7 @@ public class ImageNoirBlanc extends Image {
         ImageNoirBlanc nouvelleImage = new ImageNoirBlanc();
         nouvelleImage._width = (short) newWidth;
         nouvelleImage._height = (short) newHeight;
+        nouvelleImage._nomFichier = _nomFichier;
         nouvelleImage._pixel = new PixelNoirBlanc[newWidth][newHeight];
 
         for (int i = y1; i <= y2; i++) { //ligne
