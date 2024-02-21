@@ -12,8 +12,8 @@ public class PixelCouleur implements Pixel {
     }
 
     /**
-     * @param
-     * @description:
+     * @param       : Object Scanner en cours de lecture du fichier
+     * @description : Le pixel lit le prochain mot dans le fichier et ajoute sa valeur à _pixel si c'est un short
      */
     public void lire(Scanner scanner) {
 
@@ -34,8 +34,7 @@ public class PixelCouleur implements Pixel {
     }
 
     /**
-     * @param
-     * @description:
+     * @description : Retourne les trois valeur de _pixel
      */
     public String ecrire() {
         String sortie = "";
@@ -47,8 +46,8 @@ public class PixelCouleur implements Pixel {
     }
 
     /**
-     * @param
-     * @description:
+     * @param       : Short valeur représentant les unités de luminosité à ajuster
+     * @description : Change les trois valeurs de _pixel pour ajuster la luminosité de l'image
      */
     public void eclaircir_noircir(short valeur) {
 
@@ -61,6 +60,10 @@ public class PixelCouleur implements Pixel {
         }
     }
 
+    /**
+     * @param       : Liste de Pixels
+     * @description : Retourne la couleur moyenne de tous les Pixels dans l'image
+     */
     public Pixel moyenne(List<Pixel> listePixels) {
         PixelCouleur pixelMoyen = this;
 
