@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.*;
 
 /**
- * @description : Classe mère image
+ * Classe mère image
  */
 public class Image {
     protected Pixel[][] _pixel;
@@ -15,8 +15,9 @@ public class Image {
     protected String _nomFichier;
 
     /**
-     * @description Constructeur sans paramètre
      * @author Félix Barré
+     *
+     * Constructeur sans paramètre
      */
     public Image() {
         _pixel = null;
@@ -26,8 +27,9 @@ public class Image {
 
     /**
      * @param nomFichier Chemin du fichier
-     * @description Constructeur avec paramètre
      * @author Félix Barré
+     *
+     * Constructeur avec paramètre
      */
     public Image(String nomFichier) {
 
@@ -38,8 +40,9 @@ public class Image {
 
     /**
      * @param type Type d'image écrit au début du fichier
-     * @description Écrit l'image dans un fichier
      * @author Félix Barré
+     *
+     * Écrit l'image dans un fichier
      */
     public void ecrire(String type) {
         try {
@@ -63,8 +66,9 @@ public class Image {
 
     /**
      * @param typeVoulu Le type qui devrait être écrit au début du fichier lu
-     * @description Va lire l'image dans un fichier
      * @author Félix Barré
+     *
+     * Va lire l'image dans un fichier
      */
     public void lire(String typeVoulu) {
         try {
@@ -118,8 +122,9 @@ public class Image {
 
     /**
      * @param image Image à copier
-     * @description Copie l'entièreté du contenu d'une image
      * @author Félix Barré
+     *
+     * Copie l'entièreté du contenu d'une image
      */
     public void copier(Image image) {
         _nomFichier = image._nomFichier;
@@ -135,10 +140,11 @@ public class Image {
 
     /**
      * @param valeur Valeur appliquée à l'image
-     * @description Éclaircir ou noircir l'image selon la valeur passée en paramètre
      * @author Félix Barré
+     *
+     * Éclaircir ou noircir l'image selon la valeur passée en paramètre
      */
-    void eclaircir_noircir(short valeur) {
+    public void eclaircir_noircir(short valeur) {
         for (int i = 0; i < _height; i++) {
             for (int j = 0; j < _width; j++) {
                 _pixel[i][j].eclaircir_noircir(valeur);
@@ -148,8 +154,10 @@ public class Image {
 
     /**
      * @param image Image à comparer
-     * @description : Détecte si les deux images sont identiques pixel par pixel.
-     * @author      : Joel Tidjane
+     * @return Retourne une valeur booléenne (true si les images sont identiques)
+     * @author Joel Tidjane
+     *
+     * Détecte si les deux images sont identiques pixel par pixel.
      */
     public boolean estIdentique(Image image) {
         if(image._width != _width || image._height != _height){
@@ -168,8 +176,9 @@ public class Image {
     }
 
     /**
-     * @description : Permet de tourner de 90 degrés l’image.
      * @author      : Joel Tidjane
+     *
+     * Permet de tourner de 90 degrés l’image.
      */
     public void pivoter90() {
         int newWidth = _height;
@@ -188,8 +197,9 @@ public class Image {
     }
 
     /**
-     * @description Réduit la résolution de l'image de moitié
      * @author Félix Barré
+     *
+     * Réduit la résolution de l'image de moitié
      */
 
     public void reduire() {
@@ -226,8 +236,10 @@ public class Image {
     }
 
     /**
-     * @description : Trouve le pixel le plus commun dans l'image
-     * @author      : Jasmin Dubuc
+     * @author Jasmin Dubuc
+     * @return Retourne une copie du Pixel le plus commun
+     *
+     * Trouve le pixel le plus commun dans l'image
      * */
    public Pixel couleur_preponderante() {
 
