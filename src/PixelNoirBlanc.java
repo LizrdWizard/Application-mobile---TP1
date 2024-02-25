@@ -1,17 +1,27 @@
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Classe Pixel noir et blanc
+ */
 public class PixelNoirBlanc implements Pixel {
 
     private short _pixel;
 
+    /**
+     * @author Jasmin Dubuc
+     *
+     * Constructeur sans paramètres
+     */
     public PixelNoirBlanc() {
         _pixel = 0;
     }
 
     /**
-     * @param       : Object Scanner en cours de lecture du fichier
-     * @description : Le pixel lit le prochain mot dans le fichier et ajoute sa valeur à _pixel si c'est un short
+     * @param scanner Object Scanner en cours de lecture du fichier
+     * @author Jasmin Dubuc
+     *
+     * Le pixel lit le prochain mot dans le fichier et ajoute sa valeur à _pixel si c'est un short
      */
     public void lire(Scanner scanner) {
 
@@ -29,15 +39,20 @@ public class PixelNoirBlanc implements Pixel {
     }
 
     /**
-     * @description : Retourne la valeur de _pixel
+     * @return Retourne le string représentant la valeur du Pixel
+     * @author Félix Barré
+     *
+     * Retourne la valeur de _pixel en String
      */
     public String ecrire() {
         return String.valueOf(_pixel) + ' ';
     }
 
     /**
-     * @param       : Short valeur représentant les unités de luminosité à ajuster
-     * @description : Change la valeur de _pixel pour ajuster la luminosité de l'image
+     * @param valeur Short valeur représentant les unités de luminosité à ajuster
+     * @author Jasmin Dubuc
+     *
+     * Change la valeur de _pixel pour ajuster la luminosité de l'image
      */
     public void eclaircir_noircir(short valeur) {
 
@@ -48,8 +63,11 @@ public class PixelNoirBlanc implements Pixel {
     }
 
     /**
-     * @param       : Liste de Pixels
-     * @description : Retourne la couleur moyenne de tous les Pixels dans l'image
+     * @param listePixels Liste de Pixels à calculer
+     * @return Retourne un pixel équivalent à la valeure moyenne de tous
+     * @author Félix Barré
+     *
+     * Retourne la moyenne d'un ensemble de pixels noirs et blancs incluant soi-même
      */
     public Pixel moyenne(List<Pixel> listePixels) {
         PixelNoirBlanc pixelMoyen = this;

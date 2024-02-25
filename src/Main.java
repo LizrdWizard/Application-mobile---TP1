@@ -1,5 +1,5 @@
 /**
- * @description : Fil d'exécution principal
+ * Fil d'exécution principal
  */
 
 public class Main {
