@@ -1,34 +1,38 @@
 /**
- * @description Classe pour une image PPM
+ * Classe pour une image PPM
  */
 public class ImageCouleur extends Image {
     /**
-     * @description Constructeur sans paramètres
      * @author Félix Barré
+     *
+     * Constructeur sans paramètres
      */
     public ImageCouleur() {
         super();
     }
 
     /**
-     * @description Constructeur avec paramètres
      * @author Félix Barré
+     *
+     * Constructeur avec paramètres
      */
     public ImageCouleur(String nomFichier) {
         super(nomFichier);
     }
 
     /**
-     * @description Lire une image à partir du fichier
      * @author Félix Barré
+     *
+     * Lire une image à partir du fichier
      */
     public void lire() {
         super.lire("P3");
     }
 
     /**
-     * @description Écrire l'image dans un fichier
      * @author Félix Barré
+     *
+     * Écrire l'image dans un fichier
      */
     public void ecrire() {
         super.ecrire("P3");
@@ -39,8 +43,10 @@ public class ImageCouleur extends Image {
      * @param x2 Position x du point 2
      * @param y1 Position y du point 1
      * @param y2 Position y du point 2
-     * @description Extrait une section déterminée de l'image
+     * @return Retourne une nouvelle image en couleur correspondante à la section extraite
      * @author Joel Tidjane
+     *
+     * Extrait une section déterminée de l'image
      */
     public ImageCouleur extraire(int x1, int y1, int x2, int y2) {
         int newWidth = x2 - x1 +1;
